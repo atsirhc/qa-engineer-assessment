@@ -86,7 +86,7 @@ test('Checkout with Zero Items in Cart', async ({ page }) => {
 
 
 
-// TC-011: Checkout with Empty Fields - Negative case
+// TC-011: Checkout with Empty Fields - Edge case
 test('Checkout with Empty Fields', async ({ page }) => {
 
     // Login first

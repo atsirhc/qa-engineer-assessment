@@ -26,7 +26,23 @@ The assessment covers:
 
 - URL: https://jsonplaceholder.typicode.com
 
------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+# Tools Used
+|-----------------|----------------------------------------|
+| Tool            | Purpose                                |
+|-----------------|----------------------------------------|
+| Playwright      | Web automation                         |
+| Postman         | API testing                            |
+| Microsoft Excel | Test case documentation                |
+| Microsoft Word  | Bug reports and summaries              |
+| GitHub          | Version control and repository hosting |
+| Node.js         | Playwright runtime environment         |
+|-----------------|----------------------------------------|
+
+-------------------------------------------------------------------------------------------------------------
+
 # Repository Structure
 
 ```text
@@ -58,7 +74,7 @@ qa-engineer-assessment/
 │
 └── manual-testing/
     ├── bug-report/
-    │   ├── bug-report-saucedemo.xlsx
+    │   ├── bug_reports_saucedemo.xlsx
     │   
     │
     ├── screenshots/
@@ -85,9 +101,7 @@ qa-engineer-assessment/
 [manual-testing-screenshots.docx](./manual-testing/screenshots/manual-testing-screenshots.docx)
 [API-Test-Execution-Report.docx](./api-testing/api-test-results/API-Test-Execution-Report.docx)
 
-
 ----------------------------------------------------------------------------------
-
 
 ## Bug Reports
 
@@ -97,8 +111,12 @@ qa-engineer-assessment/
 ### Bug Report - Api Testing
 [Bug_Report_APITC012.xlsx](./api-testing/bug-report-api/Bug_Report_APITC012.xlsx)
 
+--------------------------------------------------------------------------------------------------------------
+- If you encounter issues downloading or previewing the files directly from GitHub, you may access the backup copies using the GOOGLE DRIVE LINK provided below:
+[https://drive.google.com/drive/folders/1rxbKsKHGAvzyLlHJkuV-dWy1fPeMsEBz?usp=sharing]
 
------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+
 
 ## Supporting Evidence
 
@@ -106,7 +124,7 @@ qa-engineer-assessment/
 See the `/screenshots` folders.
 
 
-------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
 
 # Automation Testing
 
@@ -122,21 +140,7 @@ The automated test covers:
 - Checkout process
 - Order completion
 
----------------------------------------------------------------------------------------
-
-# Tools Used
-|-----------------|----------------------------------------|
-| Tool            | Purpose                                |
-|-----------------|----------------------------------------|
-| Playwright      | Web automation                         |
-| Postman         | API testing                            |
-| Microsoft Excel | Test case documentation                |
-| Microsoft Word  | Bug reports and summaries              |
-| GitHub          | Version control and repository hosting |
-| Node.js         | Playwright runtime environment         |
-|-----------------|----------------------------------------|
-
---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
 
 # Setup Instructions
 
@@ -147,7 +151,7 @@ Install the following:
 - Node.js
 - npm
 
----
+-----------------------------
 
 ## Install Dependencies
 
@@ -155,7 +159,7 @@ Install the following:
 npm install
 ```
 
----
+---------------------------------
 
 ## Install Playwright Browsers
 
@@ -163,7 +167,7 @@ npm install
 npx playwright install
 ```
 
----
+---------------------------------
 
 ## Run Automation Tests
 
@@ -171,7 +175,7 @@ npx playwright install
 npx playwright test
 ```
 
----
+---------------------------------
 
 ## Open Playwright Report
 
@@ -179,7 +183,7 @@ npx playwright test
 npx playwright show-report
 ```
 
-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 
 # API Testing Scope
 
@@ -201,6 +205,7 @@ The API tests include:
 - Edge cases
 - Request Details
 - Response validation
-- Status code verification
+- Short Analysis
+- Evidence
 
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
