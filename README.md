@@ -33,7 +33,7 @@ The assessment covers:
 |-----------------|----------------------------------------|
 | Tool            | Purpose                                |
 |-----------------|----------------------------------------|
-| Playwright      | Web automation                         |
+| Playwright      | Web automation (Javascript)                        |
 | Postman         | API testing                            |
 | Microsoft Excel | Test case documentation                |
 | Microsoft Word  | Bug reports and summaries              |
