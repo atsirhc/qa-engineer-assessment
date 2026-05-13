@@ -1,0 +1,588 @@
+{
+  "info": {
+    "_postman_id": "e23745f5-7da9-4bd4-af71-5d567948602e",
+    "name": "API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54716270"
+  },
+  "item": [
+    {
+      "name": "GET_All_Users_Positive",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify that the response status code is 200\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Convert response to JSON\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify that the response contains users\r",
+              "pm.test(\"Users array is not empty\", function () {\r",
+              "    pm.expect(jsonData.length).to.be.above(0);\r",
+              "});\r",
+              "\r",
+              "// Verify that the response is an array\r",
+              "pm.test(\"Response is an array\", function () {\r",
+              "    pm.expect(jsonData).to.be.an(\"array\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/users",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET_All_Users_Negative",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify that invalid endpoint returns 404\r",
+              "pm.test(\"Status code is 404. Invalid endpoint\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/usersss",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "usersss"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET_All_Users_Edge",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify status code is 200\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Parse response\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify response is empty array\r",
+              "pm.test(\"Response is empty array\", function () {\r",
+              "    pm.expect(jsonData.length).to.eql(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseURL}}/users?id=999",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "users"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "999"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET_UserID_Positive",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify status code\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Parse JSON response\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify correct user ID\r",
+              "pm.test(\"User ID is 1\", function () {\r",
+              "    pm.expect(jsonData.id).to.eql(1);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/users/1",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET_UserID_Negative",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify invalid endpoint returns 404\r",
+              "pm.test(\"Status code is 404.\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/user/1",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "user",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET_Invalid_UserID_Edge",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify status code\r",
+              "pm.test(\"Status code is 404.\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});\r",
+              "\r",
+              "// Parse response\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify response object exists\r",
+              "pm.test(\"Response body exists\", function () {\r",
+              "    pm.expect(jsonData).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/users/100",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "users",
+            "100"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST_Create_Post_Positive",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify successful creation\r",
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "// Parse response\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify returned title\r",
+              "pm.test(\"Title matches request\", function () {\r",
+              "    pm.expect(jsonData.title).to.eql(\"New Record\");\r",
+              "});\r",
+              "\r",
+              "// Verify userId\r",
+              "pm.test(\"User ID is correct\", function () {\r",
+              "    pm.expect(jsonData.userId).to.eql(1);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"New Record\",\r\n  \"body\": \"This is a new post created for testing purposes.\",\r\n  \"userId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/posts",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST_Create_Post_Negative",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify invalid endpoint returns 404\r",
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});\r",
+              "\r",
+              "// Verify response exists\r",
+              "pm.test(\"Response body exists\", function () {\r",
+              "    pm.expect(pm.response.text()).to.not.be.empty;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"New Record\",\r\n  \"body\": \"This is a new post created for testing purposes.\",\r\n  \"userId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/posts2",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "posts2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST_Empty_Body_Edge",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify response status\r",
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "// Parse response\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify ID was generated\r",
+              "pm.test(\"Response contains generated ID\", function () {\r",
+              "    pm.expect(jsonData.id).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/posts",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT_Update_Post_Positive",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify successful update\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Parse response\r",
+              "const jsonData = pm.response.json();\r",
+              "\r",
+              "// Verify updated title\r",
+              "pm.test(\"Title updated successfully\", function () {\r",
+              "    pm.expect(jsonData.title).to.eql(\"Updated Title\");\r",
+              "});\r",
+              "\r",
+              "// Verify updated body\r",
+              "pm.test(\"Body updated successfully\", function () {\r",
+              "    pm.expect(jsonData.body).to.eql(\"This is an updated post for testing purposes.\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Updated Title\",\r\n    \"body\": \"This is an updated post for testing purposes.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/posts/1",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT_Update_Post_Negative",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify invalid endpoint returns 404\r",
+              "pm.test(\"Status code is 404.\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Updated Title\",\r\n    \"body\": \"This is an updated post for testing purposes.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/postsd/1",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "postsd",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT_Update_Post_Edge",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verify request succeeds for invalid user ID\r",
+              "pm.test(\"Status code is 404.\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 222,\r\n  \"title\": \"Edge Case Title\",\r\n  \"body\": \"Edge Case Body\",\r\n  \"userId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/posts/222",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "posts",
+            "222"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

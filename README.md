@@ -40,14 +40,14 @@ qa-engineer-assessment/
 │   │
 │   ├── api-test-results/
 │   │   ├── api-test-excution-results.docx
-│   │   ├── postman_collection.json
-│   │   └── postman_environment.json
+│   │   ├── api testing.postman_collection.json
+│   │   └── JSONPlaceholder API.postman_environment.json
 │   │
 │   ├── bug-report-api/
 │   │   ├── bug_report_apitc012.xlsx
 │   │   
 │   │
-│   └── README.md
+│  
 │
 ├── automation-testing/
 │   ├── html-report/
@@ -62,10 +62,10 @@ qa-engineer-assessment/
     │   
     │
     ├── screenshots/
-    │   └── manual-test-execution-results.docx
+    │   └── manual-testing-screenshots.docx
     │
     └── test-cases/
-        ├── manual-test-cases.xlsx
+        ├── saucedemo-test-cases.xlsx
         
 ```
 
@@ -76,13 +76,15 @@ qa-engineer-assessment/
 ## Test Documentation
 
 ### Manual Web Test Cases
-[Download Web Test Cases](./test-cases/web-test-cases.xlsx)
+[SacuceDemo-Test-Cases.xlsx](./manual-testing/test-cases/Saucedemo-Test-Cases.xlsx)
 
 ### API Test Cases
-[Download API Test Cases](./test-cases/api-test-cases.xlsx)
+[API-Test-Cases.xlsx](./api-testing/api-test-cases/API-Test-Cases.xlsx)
 
 ### Execution Results
-[Download Execution Results](./test-cases/execution-results.docx)
+[manual-testing-screenshots.docx](./manual-testing/screenshots/manual-testing-screenshots.docx)
+[API-Test-Execution-Report.docx](./api-testing/api-test-results/API-Test-Execution-Report.docx)
+
 
 ----------------------------------------------------------------------------------
 
@@ -93,7 +95,7 @@ qa-engineer-assessment/
 [Bug_Reports_SauceDemo.xlsx](./manual-testing/bug-report/Bug_Reports_SauceDemo.xlsx)
 
 ### Bug Report - Api Testing
-[Download Bug Report 002](./bug-reports/bug-report-002.docx)
+[Bug_Report_APITC012.xlsx](./api-testing/bug-report-api/Bug_Report_APITC012.xlsx)
 
 
 -----------------------------------------------------------------------------------
